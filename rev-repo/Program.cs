@@ -44,4 +44,4 @@ string name = "Harry";
 int hourlyWage = 10;
 double hours = 30;
 double wage = (hourlyWage * Math.Min(hours, 40)) + (hourlyWage * 1.5 * Math.Max(hours - 40, 0));
-Console.WriteLine($"{name} worked for {hours} this week and the wage is {wage} dollars");
+Console.WriteLine($"{name} worked for {hours} this week and the wage is {wage} Australian dollars");
