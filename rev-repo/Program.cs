@@ -1,4 +1,81 @@
-﻿//A program that prints 10 by 10 multiplication table. 
+﻿//basic
+using System.Runtime.Intrinsics.X86;
+
+Console.WriteLine("Enter length of square");
+double len = double.Parse(Console.ReadLine());
+double area = Math.Pow(len, 2);
+double peri = 4 * len;
+Console.WriteLine($"For a square of length {len}, the area is {area} and perimeter is {peri}");
+
+//Here is a program that reads in two assessment results and displays the average result (i.e. the total 
+//of the two assessment results divided by two) and the assessment grade (i.e. pass, fail, credit, or 
+//distinction). Use the following table data to determine the grade:
+//Average Mark Grade
+//0 - 49 Fail
+//50 - 64 Pass
+//65 - 82 Credit
+//83 - 100 Distinction
+
+int NumValidator(string input) 
+{
+    int numScore;
+    if (int.TryParse(input, out int score)){
+        numScore = score;
+    }
+    else
+    {
+        numScore = -1;
+    }
+    return numScore;
+}
+
+int score1 = -1;
+while (score1 < 0 || score1>100)
+{
+    Console.WriteLine("Enter your first score");
+    score1 = NumValidator(Console.ReadLine());
+    if (score1 < 0 || score1 > 100)
+    {
+        Console.WriteLine("Invalid score entered");
+    }
+    else
+    {
+        Console.WriteLine($"Your first score is {score1}");
+    }
+}
+
+int score2 = -1;
+while (score2 < 0 || score2 > 100)
+{
+    Console.WriteLine("Enter your second score");
+    score2 = NumValidator(Console.ReadLine());
+    if (score2 < 0 || score2 > 100)
+    {
+        Console.WriteLine("Invalid score entered");
+    }
+    else
+    {
+        Console.WriteLine($"Your first score is {score2}");
+    }
+}
+    
+
+double avgScore = (score1 + score2) / 2d;
+Console.WriteLine($"The average of your scores is {avgScore}");
+if(avgScore >=0 && avgScore <= 49)
+{
+    Console.WriteLine("Grade: Fail");
+}
+else if (avgScore >=50 && avgScore <= 100)
+{
+    Console.WriteLine("Grade: Pass");
+}
+
+
+
+
+
+//A program that prints 10 by 10 multiplication table. 
 //Sample Output: 
 //1 2 3 4 5 6 7 8 9 10
 //2 4 6 8 10 12 14 16 18 20
@@ -40,7 +117,7 @@ Harry worked for 32.5 hours this week and the wage is 1137.5 dollars
  */
 
 
-string name = "Harry";
+string name = "Harry";// hard-coding for now to get the main problem completed
 int hourlyWage = 10;
 double hours = 30;
 double wage = (hourlyWage * Math.Min(hours, 40)) + (hourlyWage * 1.5 * Math.Max(hours - 40, 0));
